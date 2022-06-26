@@ -24,14 +24,14 @@ def content():
 @app.route("/login")
 def login():
     form = LoginForm
-    return render_template('login.html', title='login', form =form)
+    return render_template('login.html', title='login', form = form)
 
 
-# Login Page
+# register Page
 @app.route("/register")
 def register():
     form = RegistrationForm()
-    return render_template('register.html', title='register', form = RegistrationForm)
+    return render_template('register.html', title='register', form = form)
 
 
 # Admin page
