@@ -1,10 +1,7 @@
 from flask import Flask, render_template, url_for, flash, redirect
-
 from Forms import LoginForm, RegistrationForm
 
 app = Flask(__name__)
-
-
 app.config['SECRET_KEY'] = 'dd74d77daecfe64f22d4a5c7a1b8ffa4'
 
 # this is the main home page
@@ -30,7 +27,7 @@ def login():
             return redirect(url_for('home'))
         else:
             flash('Login Unsuccessful. Please check username and password', 'danger')
-    return render_template('login.html', title='login', form = form)
+    return render_template('login.html', title='login', form=form)
 
 
 # register Page
@@ -40,7 +37,7 @@ def register():
     if form.validate_on_submit():
         flash(f'account created for {form.username.data}!', 'success')
         return redirect(url_for('home'))
-    return render_template('register.html', title='register', form = form)
+    return render_template('register.html', title='register', form=form)
 
 
 # Admin page
