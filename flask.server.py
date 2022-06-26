@@ -1,11 +1,11 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, flash, redirect
 
 from Forms import LoginForm, RegistrationForm
 
 app = Flask(__name__)
 
 
-app.config['SECRET KEY'] = 'dd74d77daecfe64f22d4a5c7a1b8ffa4'
+app.config['SECRET_KEY'] = 'dd74d77daecfe64f22d4a5c7a1b8ffa4'
 
 # this is the main home page
 @app.route("/")
@@ -21,16 +21,25 @@ def content():
 
 
 # Login Page
-@app.route("/login")
+@app.route("/login", methods=['GET', 'POST'])
 def login():
-    form = LoginForm
+    form = LoginForm()
+    if form.validate_on_submit():
+        if form.email.data == 'admin@Final.com' and form.password.data == 'password':
+            flash('You have been logged in!', 'success')
+            return redirect(url_for('home'))
+        else:
+            flash('Login Unsuccessful. Please check username and password', 'danger')
     return render_template('login.html', title='login', form = form)
 
 
 # register Page
-@app.route("/register")
+@app.route("/register", methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
+    if form.validate_on_submit():
+        flash(f'account created for {form.username.data}!', 'success')
+        return redirect(url_for('home'))
     return render_template('register.html', title='register', form = form)
 
 
