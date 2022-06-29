@@ -12,9 +12,9 @@ def home():
 
 
 # Content Page 
-@app.route("/content")
-def content():
-    return render_template('content.html', title ='content')
+#@app.route("/content")
+#def content():
+#    return render_template('content.html', title ='content')
 
 
 # Login Page
