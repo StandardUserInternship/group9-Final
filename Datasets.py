@@ -8,7 +8,4 @@ sns.set_theme(style='darkgrid')
 
 df = pd.read_csv('train.csv')
 
-sns.pairplot(
-    df, hue='Survived')
-
-plt.show()
+print(df)
