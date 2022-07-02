@@ -7,4 +7,4 @@ df = pd.read_csv('train.csv')
 plt.show()
 df1 = df.dropna()
 print(df1)
-
+plt.show()
