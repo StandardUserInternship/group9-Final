@@ -4,10 +4,14 @@ import matplotlib.pyplot as plt
 
 df = pd.read_csv("train.csv")
 df.head()
-df1 = df.dropna()
-x=print(input('SELECT FROM ' & df.head() )) #Need to figure out how to allow user to select from Col_list
-y=print(input('SELECT FROM ' & df.head()))
+limitPer = len(df) * .80
+df1 = df.dropna(thresh=limitPer, axis=1)
+
+
+survived = df1['Survived']
+survived.head()#Need to figure out how to allow user to select from Col_list
+ages=df1['Age']
+ages.head()
 print(df1)
-plt.scatter(x, y) 
-#, s=area, c=colors, alpha=0.5)
+plt.scatter('Survived', 'Age', color='hotpink', alpha=0.5)
 plt.show()
