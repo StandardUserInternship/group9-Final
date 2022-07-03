@@ -11,15 +11,43 @@ sns.set_theme(style='darkgrid')
 
 df = pd.read_csv('train.csv')
 
-#print(df)
+print(df)
 
-dfs = df[1:5]
+dfs = df[0:10]
 
 print(dfs)
 
-q = """SELECT Age 
-       FROM df 
-       LIMIT 10;"""
+q = """SELECT AVG(Age) 
+       FROM df;
+       """
 
-names = pysqldf(q)
-print(names)
+avgAge = pysqldf(q)
+
+q = """SELECT AVG(Fare)
+        FROM df;
+        """
+avgFare = pysqldf(q)
+
+q = """SELECT COUNT(Sex)
+        FROM df
+        WHERE Sex = 'male';
+        """
+maleCount = pysqldf(q)
+
+q = """SELECT COUNT(Sex)
+        FROM df
+        WHERE Sex = 'female';
+        """
+femaleCount = pysqldf(q)
+
+print(avgAge)
+print(avgFare)
+print(maleCount)
+print(femaleCount)
+print()
+print(avgAge)
+
+#df = pd.DataFrame({'lab':['Age', 'Fare', 'male', 'female'], 'val':[avgAge, avgFare, maleCount, femaleCount]})
+#ax = df.plot.bar(x='lab', y='val', rot=0)
+
+#plt.show()
