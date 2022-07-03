@@ -5,17 +5,19 @@ import matplotlib.pyplot as plt
 df = pd.read_csv("train.csv")
 df.head()
 
-limitPer = len(df) * .80 #does this need to be a loop? 
-df1 = df.dropna(thresh=limitPer, axis=1)#forgot what that 1 means... 
+pct_null = df.isnull().sum() / len(df)
+missing_features = pct_null[pct_null > 0.80].index
+df1 = df.drop(missing_features, axis=1, inplace=True)
+
+#df1 = df.dropna(thresh=limitPer, axis=1)#forgot what that 1 means... 
 
 #do we need to do an input for the user to choose from the the indexes** then an if statement? 
-survived = df1['Survived']
-survived.head()#Need to figure out how to allow user to select from Col_list
+PassengerId_df1 = df1['PassengerId']
+PassengerId_df1.head()#Need to figure out how to allow user to select from Col_list
 
 
-
-ages=df1['Age']
+ages = df1["Age"]
 ages.head()
 print(df1)
-plt.scatter('Survived', 'Age', color='hotpink', alpha=0.5)
+plt.scatter('PassengerId', 'Age', color='hotpink', alpha=0.5)
 plt.show()
