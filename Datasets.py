@@ -45,7 +45,7 @@ print(avgFare)
 print(maleCount)
 print(femaleCount)
 print()
-print(avgAge)
+print(pd.isnull(df.Age[5]))
 
 #df = pd.DataFrame({'lab':['Age', 'Fare', 'male', 'female'], 'val':[avgAge, avgFare, maleCount, femaleCount]})
 #ax = df.plot.bar(x='lab', y='val', rot=0)
