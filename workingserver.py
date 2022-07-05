@@ -22,7 +22,7 @@ class User(db.Model):
     #last_login = 
 
     def __repr__(self):
-        return f"User('{self.username}', '{self.email}')"
+        return f"User('{self.username}', '{self.email}, {self.image_file}')"
 
 
 # DataSets - Data Set Name, Data Set File
