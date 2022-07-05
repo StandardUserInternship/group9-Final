@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 
 df = pd.read_csv("train.csv")
@@ -9,6 +10,7 @@ secondOption = input("Type ony one from: PassengerId, Embarked, Cabin, or Pclass
 chosenData = df.groupby(firstOption)[secondOption].mean
 print(chosenData)
 plt.scatter('firstOption','secondOption')'''
+
 plt.scatter('PassengerId', 'Age')
 plt.show
 #pct_null = df.isnull().sum() / len(df)
