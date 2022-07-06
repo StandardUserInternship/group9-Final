@@ -77,7 +77,7 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
-        pw= User.query.filter_by(password=form.passowrd.data).first()
+        pw= User.query.filter_by(password=form.password.data).first()
         if form.email.data == 'admin@blog.com' and form.password.data == 'password':
             flash('You have been logged in!', 'success')
             return redirect(url_for('home'))
