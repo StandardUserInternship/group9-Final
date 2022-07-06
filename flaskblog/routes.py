@@ -77,11 +77,12 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
+        pw= User.query.filter_by(password=form.passowrd.data).first()
         if form.email.data == 'admin@blog.com' and form.password.data == 'password':
             flash('You have been logged in!', 'success')
             return redirect(url_for('home'))
 
-        elif user:
+        elif user and pw:
             login_user(user, remember=form.remember.data)
             flash('You have been logged in!', 'success')
             return redirect(url_for('home'))
