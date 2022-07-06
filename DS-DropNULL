@@ -2,17 +2,29 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-df = pd.read_csv("train.csv")
-'''
+def Clean_data():
+    df = pd.read_csv("train.csv")
+    for column in Clean_data.columns:
+        numNull = Clean_data[column].isnull().sum()
+        twntypercnt = (Clean_data.shape[0]* 0.20)
+        if numNull > twntypercnt:
+            Clean_data = Clean_data.drop(column, axis = 1)
+            continue
+    return Clean_data
+
+
+
+
 firstOption= input("type only one: Sex, Age, or Survived: ")
 secondOption = input("Type ony one from: PassengerId, Embarked, Cabin, or Pclass: ")
 
-chosenData = df.groupby(firstOption)[secondOption].mean
-print(chosenData)
-plt.scatter('firstOption','secondOption')'''
-
-plt.scatter('PassengerId', 'Age')
+#chosenData = Clean_data.groupby(firstOption)[secondOption].mean
+print(Clean_data)
+plt.scatter('firstOption','secondOption')
 plt.show
+
+#plt.scatter('PassengerId', 'Age')
+#plt.show
 #pct_null = df.isnull().sum() / len(df)
 #missing_features = pct_null[pct_null > 0.80].index
 #df1 = df.drop(missing_features, axis=1, inplace=True)
