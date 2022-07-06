@@ -17,21 +17,3 @@ firstOption= input("type only one: PassengerId or Survived: ")
 secondOption = input("Type ony one from: Sex or Age: ")
 
 print(Clean_data())
-
-plt.plot()
-plt.scatter('firstOption','secondOption', )
-plt.show
-
-#plt.scatter('PassengerId', 'Age')
-#plt.show
-#pct_null = df.isnull().sum() / len(df)
-#missing_features = pct_null[pct_null > 0.80].index
-#df1 = df.drop(missing_features, axis=1, inplace=True)
-
-#ages = df1["Age"]
-#ages.head()
-#type(df1["Age"])
-#pd.core.series.Series
-#print(df1)
-# color='hotpink', alpha=0.5)
-#plt.show()
