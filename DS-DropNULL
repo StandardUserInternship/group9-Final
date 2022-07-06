@@ -4,22 +4,19 @@ import matplotlib.pyplot as plt
 
 def Clean_data():
     df = pd.read_csv("train.csv")
-    for column in Clean_data.columns:
-        numNull = Clean_data[column].isnull().sum()
-        twntypercnt = (Clean_data.shape[0]* 0.20)
+    for column in df.columns:
+        numNull = df[column].isnull().sum()
+        twntypercnt = (df.shape[0]* 0.20)
         if numNull > twntypercnt:
-            Clean_data = Clean_data.drop(column, axis = 1)
+            df=df.drop(column, axis = 1)
             continue
-    return Clean_data
+    return df
 
 
+firstOption= input("type only one: PassengerId or Survived: ")
+secondOption = input("Type ony one from: Sex or Age: ")
 
-
-firstOption= input("type only one: Sex, Age, or Survived: ")
-secondOption = input("Type ony one from: PassengerId, Embarked, Cabin, or Pclass: ")
-
-#chosenData = Clean_data.groupby(firstOption)[secondOption].mean
-print(Clean_data)
+print(Clean_data())
 plt.scatter('firstOption','secondOption')
 plt.show
 
