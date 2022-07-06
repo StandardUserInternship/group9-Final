@@ -17,7 +17,9 @@ firstOption= input("type only one: PassengerId or Survived: ")
 secondOption = input("Type ony one from: Sex or Age: ")
 
 print(Clean_data())
-plt.scatter('firstOption','secondOption')
+
+plt.plot()
+plt.scatter('firstOption','secondOption', )
 plt.show
 
 #plt.scatter('PassengerId', 'Age')
